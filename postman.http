@@ -1,0 +1,93 @@
+@url = http://localhost:8000
+
+### REGISER + LINK CONFIRMATION
+POST {{url}}/api/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username": "user11",
+    "name": "mi name",
+    "email": "user11@mail.com",
+    "password": "123456789",
+    "password_confirmation": "123456789"
+}
+### LOGIN
+POST {{url}}/api/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "user11@mail.com",
+    "password": "marvin"
+}
+
+### RESEND
+POST {{url}}/api/verification/resend
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "user12@mail.com"
+}
+### LOGOUT
+POST {{url}}/api/logout
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYzMTk3NTI3MSwiZXhwIjoxNjMxOTc4ODcxLCJuYmYiOjE2MzE5NzUyNzEsImp0aSI6IjhCajNodjg3eHdBdUlDMWEiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.RlFpcSB-vf_3QMXb4Eir6DRTueI257wr2aHTKfozAow
+
+### ME endpoint
+GET {{url}}/api/me
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYzMTk5MTgyMSwiZXhwIjoxNjMxOTk1NDIxLCJuYmYiOjE2MzE5OTE4MjEsImp0aSI6IkZuWHBFRjFLZXI5YjJDTnEiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.gTjsCWQWvunHu2oicjhuxZyuFFFb3wiksC_kDrL36xo
+
+### SEND LINK RESET PASSWORD
+POST {{url}}/api/password/email
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "user11@mail.com"
+}
+### RESET PASSWORD
+POST {{url}}/api/password/reset
+Content-Type: application/json
+Accept: application/json
+
+{
+    "token": "d3f1014f2d949460dd2d58098703fc23040a94082638fcb1cc2695658374e249",
+    "email": "user11@mail.com",
+    "password": "123123123",
+    "password_confirmation": "123123123"
+}
+### UPDATE profile
+PUT {{url}}/api/settings/profile
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYzMTk5MTgyMSwiZXhwIjoxNjMxOTk1NDIxLCJuYmYiOjE2MzE5OTE4MjEsImp0aSI6IkZuWHBFRjFLZXI5YjJDTnEiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.gTjsCWQWvunHu2oicjhuxZyuFFFb3wiksC_kDrL36xo
+
+{
+    "tagline": "developers",
+    "name": "marvin",
+    "about": "es mi primera app pero no se que mas poner",
+    "formatted_address": "123",
+    "location": {
+        "latitude": 45.424,
+        "longitude": -75.056
+    },
+    "available_to_hire": true
+}
+
+### UPDATE profile
+PUT {{url}}/api/settings/password
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYzMjE1MTcyMSwiZXhwIjoxNjMyMTU1MzIxLCJuYmYiOjE2MzIxNTE3MjEsImp0aSI6ImFPUUh4NUQ4amZVYWhveHMiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.YykcXCfAGdAuhqsUVjhdg3hrHpNA1JycJdFUmZB1Rog
+
+{
+    "current_password": "123123123",
+    "password": "marvin",
+    "password_confirmation": "marvin"
+
+}
